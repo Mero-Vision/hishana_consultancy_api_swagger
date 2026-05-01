@@ -1,8 +1,8 @@
 {
     "info": {
-        "title": "Cartyne API Swagger",
+        "title": "Hishana Consultancy API Swagger",
         "version": "1.0",
-        "description": "Cartyne API documentation",
+        "description": "Hishana Consultancy API documentation",
         "termsOfService": "#",
         "license": {
             "name": "MIT",
@@ -21,7 +21,7 @@
     },
     "servers": [
         {
-            "url": "https://api.cartyne.com/",
+            "url": "https://api.hishanaconsultancy.com/",
             "description": "server"
         }
     ]

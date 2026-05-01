@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Cartyne API Swagger
-  description: Cartyne API documentation
+  title: Hishana Consultancy API Swagger
+  description: Hishana Consultancy API documentation
   version: '1.0'
   x-logo:
     url: https://github.com/joolfe/logoBanner.png
@@ -16,7 +16,7 @@ info:
     name: MIT
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
-  - url: https://api.cartyne.com/
+  - url: https://api.hishanaconsultancy.com/
     description: server
 components:
   securitySchemes:
