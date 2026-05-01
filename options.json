@@ -1,0 +1,28 @@
+{
+    "info": {
+        "title": "Cartyne API Swagger",
+        "version": "1.0",
+        "description": "Cartyne API documentation",
+        "termsOfService": "#",
+        "license": {
+            "name": "MIT",
+            "url": "https://es.wikipedia.org/wiki/Licencia_MIT"
+        },
+        "contact": {
+            "name": "Mero Vision",
+            "url": "https://merovision.com",
+            "email": "merovision720@gmail.com"
+        },
+        "xLogo": {
+            "url": "https://github.com/joolfe/logoBanner.png",
+            "backgroundColor": "#FFFFFF",
+            "altText": "logo"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://api.cartyne.com/",
+            "description": "server"
+        }
+    ]
+}

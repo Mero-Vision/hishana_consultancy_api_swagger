@@ -1,0 +1,2133 @@
+openapi: 3.0.0
+info:
+  title: Cartyne API Swagger
+  description: Cartyne API documentation
+  version: '1.0'
+  x-logo:
+    url: https://github.com/joolfe/logoBanner.png
+    backgroundColor: '#FFFFFF'
+    altText: logo
+  termsOfService: '#'
+  contact:
+    name: Mero Vision
+    url: https://merovision.com
+    email: merovision720@gmail.com
+  license:
+    name: MIT
+    url: https://es.wikipedia.org/wiki/Licencia_MIT
+servers:
+  - url: https://api.cartyne.com/
+    description: server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+tags:
+  - name: Admin
+  - name: Admin > Site Settings
+  - name: Admin > Authentication
+  - name: Admin > Category
+  - name: Admin > Brand
+  - name: Admin > Product
+  - name: Admin > User
+  - name: Admin > Dashboard
+  - name: Admin > Delivery Charges
+  - name: Admin > Customer
+  - name: Admin > Order
+  - name: Admin > FAQ
+  - name: Admin > Contact Us
+  - name: Admin > NewsLetter
+  - name: Admin > Payment Option
+  - name: Customer
+  - name: Customer > Authentication
+  - name: Customer > Customer
+  - name: Customer > Category
+  - name: Customer > Site Settings
+  - name: Customer > Brand
+  - name: Customer > Wishlist
+  - name: Customer > Cart
+  - name: Customer > Product
+  - name: Customer > Order
+  - name: Customer > Shipping Details
+  - name: Customer > Faq
+  - name: Customer > Contact Us
+  - name: Customer > NewsLetter
+  - name: Customer > Payment Option
+  - name: Customer > FonePay
+paths:
+  /api/admin/site-settings:
+    post:
+      tags:
+        - Admin > Site Settings
+      summary: store site settings
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                website_title:
+                  type: string
+                  example: Cartyne
+                logo:
+                  type: string
+                  format: binary
+                address:
+                  type: string
+                  example: KTM
+                contact_no:
+                  type: integer
+                  example: '9825915122'
+                home_page_banner_1:
+                  type: string
+                  format: binary
+                home_page_banner_2:
+                  type: string
+                  format: binary
+                home_page_banner_3:
+                  type: string
+                  format: binary
+                privacy_policy:
+                  type: string
+                terms_conditions:
+                  type: string
+                facebook_link:
+                  type: string
+                instagram_link:
+                  type: string
+                tiktok_link:
+                  type: string
+                whatsapp_number:
+                  type: string
+                footer_background_color:
+                  type: string
+                footer_text_color:
+                  type: string
+                primary_nav_background_color:
+                  type: string
+                primary_nav_text_color:
+                  type: string
+                secondary_nav_background_color:
+                  type: string
+                secondary_nav_text_color:
+                  type: string
+                email:
+                  type: string
+                about_us:
+                  type: string
+                fav_icon:
+                  type: string
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/login:
+    post:
+      tags:
+        - Admin > Authentication
+      summary: login
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: info@cartyne.com
+                password:
+                  type: string
+                  example: Password
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/category:
+    post:
+      tags:
+        - Admin > Category
+      summary: store category
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Clothe
+                category_image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Category
+      summary: show all category
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '5'
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/category/{id}:
+    delete:
+      tags:
+        - Admin > Category
+      summary: delete category
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Category
+      summary: update category
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Bag
+                category_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/brand:
+    post:
+      tags:
+        - Admin > Brand
+      summary: store brand data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Nike
+                brand_image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Brand
+      summary: show all brand list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/brand/{id}:
+    delete:
+      tags:
+        - Admin > Brand
+      summary: delete brand
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Brand
+      summary: update brand data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                brand_image:
+                  type: string
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/product:
+    post:
+      tags:
+        - Admin > Product
+      summary: store product
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                category_id:
+                  type: integer
+                  example: '1'
+                brand_id:
+                  type: integer
+                  example: '1'
+                name:
+                  type: string
+                  example: Mobile
+                short_description:
+                  type: string
+                  example: hello
+                description:
+                  type: string
+                  example: dfdgfg
+                selling_price:
+                  type: integer
+                  example: '200'
+                cross_price:
+                  type: integer
+                  example: '300'
+                unit_price:
+                  type: integer
+                  example: '100'
+                stock_quantity:
+                  type: integer
+                  example: '500'
+                sku:
+                  type: string
+                  example: DGFT56
+                allow_negative_stock:
+                  type: integer
+                  example: '1'
+                has_varient:
+                  type: integer
+                  example: '1'
+                status:
+                  type: string
+                  example: active
+                varients[0][size]:
+                  type: string
+                  example: XXL
+                varients[0][color]:
+                  type: string
+                  example: RED
+                varients[0][varient_selling_price]:
+                  type: integer
+                  example: '200'
+                varients[0][varient_cross_price]:
+                  type: integer
+                  example: '300'
+                varients[0][varient_unit_price]:
+                  type: integer
+                  example: '100'
+                varients[0][varient_stock_quantity]:
+                  type: integer
+                  example: '500'
+                varients[0][varient_sku]:
+                  type: string
+                  example: GFG67
+                varients[0][images][0][url]:
+                  type: string
+                  format: binary
+                product_image[]:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Product
+      summary: show all products
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/product/{slug}:
+    get:
+      tags:
+        - Admin > Product
+      summary: show single product
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/user/1:
+    get:
+      tags:
+        - Admin > User
+      summary: show authenticated user data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/change-password:
+    post:
+      tags:
+        - Admin > User
+      summary: change password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  example: Password
+                password:
+                  type: string
+                  example: password
+                password_confirmation:
+                  type: string
+                  example: password
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/update-profile-image/{user_id}:
+    post:
+      tags:
+        - Admin > User
+      summary: change customer profile image
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                profile_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/dashboard:
+    get:
+      tags:
+        - Admin > Dashboard
+      summary: dashboard get api
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/delivery-charges:
+    get:
+      tags:
+        - Admin > Delivery Charges
+      summary: show all delivery charges
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/delivery-charges/bulk-update:
+    put:
+      tags:
+        - Admin > Delivery Charges
+      summary: update all district delivery charges
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                districts:
+                  - id: 1
+                    cost_0_1kg: 100
+                    cost_1_2kg: 150
+                    cost_2_3kg: 200
+                    cost_3_5kg: 0
+                    cost_5_10kg: 300
+                    cost_above_10kg: 400
+                  - id: 2
+                    cost_0_1kg: 120
+                    cost_1_2kg: 160
+                    cost_2_3kg: 210
+                    cost_3_5kg: 0
+                    cost_5_10kg: 310
+                    cost_above_10kg: 410
+                  - id: 3
+                    cost_0_1kg: 110
+                    cost_1_2kg: 170
+                    cost_2_3kg: 220
+                    cost_3_5kg: 270
+                    cost_5_10kg: 320
+                    cost_above_10kg: 420
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/customers:
+    get:
+      tags:
+        - Admin > Customer
+      summary: show all customer
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '5'
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/customer-orders/{customer_id}:
+    get:
+      tags:
+        - Admin > Customer
+      summary: customer orders
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: customer_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/orders:
+    get:
+      tags:
+        - Admin > Order
+      summary: show all orders
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/orders/update-status/{order_id}:
+    post:
+      tags:
+        - Admin > Order
+      summary: update order status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: processing, delivered, cancelled
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: order_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/faqs:
+    post:
+      tags:
+        - Admin > FAQ
+      summary: store faq data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                question:
+                  type: string
+                  example: hy
+                answer:
+                  type: string
+                  example: hy
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > FAQ
+      summary: show all faq
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: string
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/faqs/{id}:
+    delete:
+      tags:
+        - Admin > FAQ
+      summary: delete faq
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > FAQ
+      summary: update faq
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                question:
+                  type: string
+                  example: hello
+                answer:
+                  type: string
+                  example: hello
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/contact-us:
+    get:
+      tags:
+        - Admin > Contact Us
+      summary: show all contact us
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/contact-us/{id}:
+    delete:
+      tags:
+        - Admin > Contact Us
+      summary: delete contact us
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/newsletters:
+    get:
+      tags:
+        - Admin > NewsLetter
+      summary: show all newsletter
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/payment-options:
+    get:
+      tags:
+        - Admin > Payment Option
+      summary: get all payment option list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/payment-options/update-status/{id}:
+    post:
+      tags:
+        - Admin > Payment Option
+      summary: update payment status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: active
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/payment-options/{slug}:
+    post:
+      tags:
+        - Admin > Payment Option
+      summary: update payment option details
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                secret_key:
+                  type: string
+                  example: rtert
+                public_key:
+                  type: string
+                  example: terert
+                merchant_code:
+                  type: string
+                  example: tey
+                username:
+                  type: string
+                  example: eyty
+                password:
+                  type: string
+                  example: tytry
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/login:
+    post:
+      tags:
+        - Customer > Authentication
+      summary: login
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: hanciewanemphago@gmail.com
+                password:
+                  type: string
+                  example: Password
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/signup:
+    post:
+      tags:
+        - Customer > Customer
+      summary: create customer account
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Hancie Phago
+                email:
+                  type: string
+                  example: hanciewanemphago@gmail.com
+                password:
+                  type: string
+                  example: Password
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/customer/{customer_id}:
+    get:
+      tags:
+        - Customer > Customer
+      summary: show customer details
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: customer_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/customer/update-profile-image/{customer_id}:
+    post:
+      tags:
+        - Customer > Customer
+      summary: change customer profile image
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                profile_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: customer_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/customer/{customer_name}:
+    post:
+      tags:
+        - Customer > Customer
+      summary: update customer name
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Hancie Phago
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: customer_name
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/customer/change-password:
+    post:
+      tags:
+        - Customer > Customer
+      summary: change password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  example: Password
+                password:
+                  type: string
+                  example: Password2
+                password_confirmation:
+                  type: string
+                  example: Password2
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/category:
+    get:
+      tags:
+        - Customer > Category
+      summary: show all category
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/category/{slug}:
+    get:
+      tags:
+        - Customer > Category
+      summary: show single category with products data
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/site-settings:
+    get:
+      tags:
+        - Customer > Site Settings
+      summary: show all site settings
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/brand:
+    get:
+      tags:
+        - Customer > Brand
+      summary: show all brand list
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/brand/{slug}:
+    get:
+      tags:
+        - Customer > Brand
+      summary: show brand products
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/wishlists:
+    post:
+      tags:
+        - Customer > Wishlist
+      summary: store wishlist
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                  example: '2'
+                product_varient_id:
+                  type: integer
+                  example: '2'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Customer > Wishlist
+      summary: show all wishlist
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '5'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/wishlists/{id}:
+    delete:
+      tags:
+        - Customer > Wishlist
+      summary: delete wishlist
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/carts:
+    post:
+      tags:
+        - Customer > Cart
+      summary: store cart details
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                  example: '2'
+                product_varient_id:
+                  type: integer
+                  example: '2'
+                quantity:
+                  type: integer
+                  example: '5'
+                price:
+                  type: integer
+                  example: '300'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Customer > Cart
+      summary: show all carts
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/carts/{id}:
+    delete:
+      tags:
+        - Customer > Cart
+      summary: delete cart
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/carts/quantity-update/{cart_id}:
+    post:
+      tags:
+        - Customer > Cart
+      summary: update cart quantity
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                quantity:
+                  type: integer
+                  example: '5'
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cart_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/products:
+    get:
+      tags:
+        - Customer > Product
+      summary: show 6 products
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/products/{slug}:
+    get:
+      tags:
+        - Customer > Product
+      summary: Show single product details
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/all-products:
+    get:
+      tags:
+        - Customer > Product
+      summary: show all products
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/orders:
+    post:
+      tags:
+        - Customer > Order
+      summary: store order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                shipping_detail_id: '1'
+                subtotal: '200'
+                delivery_charge: '200'
+                discount: '200'
+                tax: '200'
+                total_amount: '200'
+                note: hy
+                order_items:
+                  - product_id: '2'
+                    product_varient_id: '2'
+                    quantity: '2'
+                    price: '2'
+                    subtotal: '2'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Customer > Order
+      summary: show all orders
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: 127.0.0.1:8000
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.2.12
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Date:
+              schema:
+                type: string
+                example: Tue, 04 Feb 2025 12:05:33 GMT
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                data:
+                  - id: 3
+                    user_id: 1
+                    order_number: ORD2025020402
+                    shipping_detail_id: 1
+                    subtotal: '200.00'
+                    delivery_charge: '200.00'
+                    discount: '200.00'
+                    tax: '200.00'
+                    total_amount: '200.00'
+                    note: hy
+                    customer:
+                      id: 1
+                      name: Admin
+                      email: info@cartyne.com
+                      email_verified_at: '2025-01-30T18:21:25.000000Z'
+                      roles:
+                        - admin
+                      created_at: 2025-01-30 06:21 pm
+                      updated_at: 2025-01-30 06:21 pm
+                    shipping_details: null
+                    order_items:
+                      - id: 2
+                        user_id: 1
+                        order_id: 3
+                        product_id: 2
+                        product_variant_id: null
+                        quantity: 2
+                        price: '2.00'
+                        subtotal: '4.00'
+                        product:
+                          id: 2
+                          category_id: 1
+                          brand_id: 1
+                          name: Mobile
+                          slug: mobile
+                          description: dfdgfg
+                          selling_price: '200.00'
+                          cross_price: '300.00'
+                          unit_price: '100.00'
+                          stock_quantity: '500.00'
+                          sku: DGFT56
+                          allow_negative_stock: 1
+                          has_varient: 1
+                          product_weight: null
+                          status: active
+                          created_at: '2025-02-01T14:24:14.000000Z'
+                          updated_at: '2025-02-01T14:24:14.000000Z'
+                          product_images:
+                            - id: 3
+                              product_image: >-
+                                http://localhost:8000/storage/4/how-ot-make-picture-black-and-white-after.jpg
+                        product_varient:
+                          id: 2
+                          product_id: 2
+                          size: XXL
+                          color: RED
+                          selling_price: '200.00'
+                          cross_price: '300.00'
+                          unit_price: '100.00'
+                          stock_quantity: '500.00'
+                          sku: GFG67
+                          created_at: '2025-02-01T14:24:14.000000Z'
+                          updated_at: '2025-02-01T14:24:14.000000Z'
+                          product_varient_images:
+                            - id: 2
+                              product_image: >-
+                                http://localhost:8000/storage/3/how-ot-make-picture-black-and-white-after.jpg
+                  - id: 1
+                    user_id: 1
+                    order_number: ORD2025020401
+                    shipping_detail_id: 1
+                    subtotal: '200.00'
+                    delivery_charge: '200.00'
+                    discount: '200.00'
+                    tax: '200.00'
+                    total_amount: '200.00'
+                    note: hy
+                    customer:
+                      id: 1
+                      name: Admin
+                      email: info@cartyne.com
+                      email_verified_at: '2025-01-30T18:21:25.000000Z'
+                      roles:
+                        - admin
+                      created_at: 2025-01-30 06:21 pm
+                      updated_at: 2025-01-30 06:21 pm
+                    shipping_details: null
+                    order_items:
+                      - id: 1
+                        user_id: 1
+                        order_id: 1
+                        product_id: 2
+                        product_variant_id: null
+                        quantity: 2
+                        price: '2.00'
+                        subtotal: '4.00'
+                        product:
+                          id: 2
+                          category_id: 1
+                          brand_id: 1
+                          name: Mobile
+                          slug: mobile
+                          description: dfdgfg
+                          selling_price: '200.00'
+                          cross_price: '300.00'
+                          unit_price: '100.00'
+                          stock_quantity: '500.00'
+                          sku: DGFT56
+                          allow_negative_stock: 1
+                          has_varient: 1
+                          product_weight: null
+                          status: active
+                          created_at: '2025-02-01T14:24:14.000000Z'
+                          updated_at: '2025-02-01T14:24:14.000000Z'
+                          product_images:
+                            - id: 3
+                              product_image: >-
+                                http://localhost:8000/storage/4/how-ot-make-picture-black-and-white-after.jpg
+                        product_varient: null
+  /api/shipping-details:
+    post:
+      tags:
+        - Customer > Shipping Details
+      summary: store shipping details
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                recipient_name:
+                  type: string
+                  example: Nishav Rayamajhi
+                contact_no:
+                  type: integer
+                  example: '982554456'
+                email:
+                  type: string
+                  example: nishav@gmail.com
+                region:
+                  type: string
+                  example: Bagmati Province
+                district_city:
+                  type: string
+                  example: Pokhara
+                address:
+                  type: string
+                  example: Lake Side
+                landmark:
+                  type: string
+                  example: New Catwalk
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Customer > Shipping Details
+      summary: show all shipping details
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/shipping-details/{id}:
+    get:
+      tags:
+        - Customer > Shipping Details
+      summary: show single shipping details
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Customer > Shipping Details
+      summary: delete shipping details
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/shipping-details/update-status/{id}:
+    post:
+      tags:
+        - Customer > Shipping Details
+      summary: update shipping detail status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: boolean
+                  example: 'true'
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/shipping-details/1:
+    post:
+      tags:
+        - Customer > Shipping Details
+      summary: update shipping details
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                recipient_name:
+                  type: string
+                  example: Nishav Rayamajhi
+                contact_no:
+                  type: integer
+                  example: '982554456'
+                email:
+                  type: string
+                  example: nishav@gmail.com
+                region:
+                  type: string
+                  example: Bagmati Province
+                district_city:
+                  type: string
+                  example: Pokhara
+                address:
+                  type: string
+                  example: Lake Side
+                landmark:
+                  type: string
+                  example: New Catwalk
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/faqs:
+    get:
+      tags:
+        - Customer > Faq
+      summary: show all faq
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/contact-us:
+    post:
+      tags:
+        - Customer > Contact Us
+      summary: store contact us
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Harry
+                mobile_no:
+                  type: integer
+                  example: '973444333445'
+                email:
+                  type: string
+                  example: harry@gmail.com
+                subject:
+                  type: string
+                  example: Order Inquiry
+                message:
+                  type: string
+                  example: Order Delay
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/newsletter:
+    post:
+      tags:
+        - Customer > NewsLetter
+      summary: store newsletter data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: hancie@gmail.com
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/payment-options:
+    get:
+      tags:
+        - Customer > Payment Option
+      summary: show all active payment option
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/generate-fonepay-dynamic-qr:
+    post:
+      tags:
+        - Customer > FonePay
+      summary: generate fonepay dynamic qr
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: integer
+                  example: '200'
+                order_id:
+                  type: integer
+                  example: '2'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
