@@ -29,6 +29,16 @@ tags:
   - name: Admin > Admin
   - name: Admin > Faq
   - name: Admin > Blogs
+  - name: Admin > Site Settings
+  - name: Admin > Our Team Designation
+  - name: Admin > Our Team
+  - name: Admin > Our Event
+  - name: Admin > Contact Us
+  - name: Website
+  - name: Website > Our Team
+  - name: Website > Our Event
+  - name: Website > Contact Us
+  - name: Website > Blogs
 paths:
   /api/admin/login:
     post:
@@ -83,6 +93,36 @@ paths:
       tags:
         - Admin > Admin
       summary: show logged in admin data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/change-password:
+    post:
+      tags:
+        - Admin > Admin
+      summary: change password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
       security:
         - bearerAuth: []
       parameters:
@@ -368,6 +408,751 @@ paths:
             type: string
           example: application/json
         - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/site-settings:
+    post:
+      tags:
+        - Admin > Site Settings
+      summary: store site settings
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                site_title:
+                  type: string
+                  example: Hishana Consultancy
+                app_logo:
+                  type: string
+                  format: binary
+                fav_icon:
+                  type: string
+                email:
+                  type: string
+                phone_no:
+                  type: string
+                address:
+                  type: string
+                facebook_url:
+                  type: string
+                instagram_url:
+                  type: string
+                tikTok_url:
+                  type: string
+                hero_title:
+                  type: string
+                hero_subtitle:
+                  type: string
+                ceo_name:
+                  type: string
+                ceo_message:
+                  type: string
+                ceo_image:
+                  type: string
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Site Settings
+      summary: show all site setting data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/our-team-designation:
+    post:
+      tags:
+        - Admin > Our Team Designation
+      summary: store our team designation
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Manager
+                order_no:
+                  type: integer
+                  example: '2'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Our Team Designation
+      summary: show all our team designation
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: string
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/our-team-designation/{id}:
+    post:
+      tags:
+        - Admin > Our Team Designation
+      summary: update our team designation
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: CEO1
+                order_no:
+                  type: integer
+                  example: '1'
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Our Team Designation
+      summary: delete our team designation
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/our-team-designation/2:
+    get:
+      tags:
+        - Admin > Our Team Designation
+      summary: single show our designation with team members
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/our-teams:
+    post:
+      tags:
+        - Admin > Our Team
+      summary: store our team
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Puja Limbu
+                designation_id:
+                  type: integer
+                  example: '2'
+                email:
+                  type: string
+                  example: puja@gmail.com
+                phone:
+                  type: integer
+                  example: '5454656'
+                order_no:
+                  type: integer
+                  example: '1'
+                photo:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Our Team
+      summary: show all our team data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/our-teams/{id}:
+    post:
+      tags:
+        - Admin > Our Team
+      summary: update our team data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Puja Limbu
+                designation_id:
+                  type: integer
+                  example: '2'
+                email:
+                  type: string
+                  example: puja@gmail.com
+                phone:
+                  type: integer
+                  example: '5454656'
+                order_no:
+                  type: integer
+                  example: '1'
+                photo:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Our Team
+      summary: delete our team
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/ecmascript
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/events:
+    post:
+      tags:
+        - Admin > Our Event
+      summary: store our event
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: hy
+                description:
+                  type: string
+                  example: hy
+                date:
+                  type: string
+                  example: '2026-05-20'
+                start_time:
+                  type: string
+                  example: '10:00'
+                end_time:
+                  type: string
+                  example: '16:00'
+                location:
+                  type: string
+                  example: Tinkune, Kathmandu, Nepal
+                status:
+                  type: string
+                  example: open
+                event_image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Our Event
+      summary: show all events
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/events/{id}:
+    post:
+      tags:
+        - Admin > Our Event
+      summary: update event data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: hy
+                description:
+                  type: string
+                  example: hy
+                date:
+                  type: string
+                  example: '2026-05-20'
+                start_time:
+                  type: string
+                  example: '10:00'
+                end_time:
+                  type: string
+                  example: '16:00'
+                location:
+                  type: string
+                  example: Tinkune, Kathmandu, Nepal
+                status:
+                  type: string
+                  example: open
+                event_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Our Event
+      summary: single show event details
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Our Event
+      summary: delete event
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/contact-us:
+    get:
+      tags:
+        - Admin > Contact Us
+      summary: show all contact us
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: is_responded
+          in: query
+          schema:
+            type: boolean
+          example: 'false'
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/contact-us/{id}:
+    get:
+      tags:
+        - Admin > Contact Us
+      summary: single show contact us data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/contact-us/{id}/mark-as-responded:
+    post:
+      tags:
+        - Admin > Contact Us
+      summary: mark contact us as responded
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                responded_note:
+                  type: string
+                  example: hy
+                _method:
+                  type: string
+                  example: PATCH
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/our-teams:
+    get:
+      tags:
+        - Website > Our Team
+      summary: show all our team basis of designation
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/events:
+    get:
+      tags:
+        - Website > Our Event
+      summary: show all our events
+      parameters:
+        - name: month
+          in: query
+          schema:
+            type: string
+        - name: year
+          in: query
+          schema:
+            type: string
+        - name: date
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/events/{id}:
+    get:
+      tags:
+        - Website > Our Event
+      summary: single show event data
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/contact-us:
+    post:
+      tags:
+        - Website > Contact Us
+      summary: store contact us data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                  example: hy
+                email:
+                  type: string
+                  example: hy@gmail.com
+                phone_number:
+                  type: integer
+                  example: '4546546'
+                preferred_destination:
+                  type: string
+                  example: Malta
+                message:
+                  type: string
+                  example: hy
+                agreed_to_privacy_policy:
+                  type: integer
+                  example: '1'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/blogs:
+    get:
+      tags:
+        - Website > Blogs
+      summary: show all blogs
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: string
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+        - name: is_featured
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/blogs/{slug}:
+    get:
+      tags:
+        - Website > Blogs
+      summary: show single blog data
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
           in: path
           schema:
             type: string

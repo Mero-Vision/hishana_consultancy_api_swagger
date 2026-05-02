@@ -143,6 +143,64 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "change password",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "current_password",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "2d7d7d50-e3cb-4d53-8d1c-69c97e284bc6"
+                    },
+                    {
+                      "key": "password",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "dbfd7c64-1b88-4646-9c69-b9b69368b434"
+                    },
+                    {
+                      "key": "password_confirmation",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "969e7d8b-9333-416b-97df-74dfb00e9931"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/change-password",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "change-password"
+                  ]
+                }
+              },
+              "response": []
             }
           ]
         },
@@ -633,6 +691,1371 @@
                     "admin",
                     "blogs",
                     "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Site Settings",
+          "item": [
+            {
+              "name": "store site settings",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "site_title",
+                      "value": "Hishana Consultancy",
+                      "type": "text",
+                      "uuid": "8324f91c-e01c-4287-9162-61404e0e14de"
+                    },
+                    {
+                      "key": "app_logo",
+                      "type": "file",
+                      "uuid": "ca3d2ecf-7b87-48e0-bcfa-11485da5be49",
+                      "src": "/Users/hanciephago/Desktop/Black-and-Red-Simple-Car-Icon-Industrial-Logo-(6).jpeg"
+                    },
+                    {
+                      "key": "fav_icon",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "c5919076-d7d8-4045-9034-8587fde0a32e"
+                    },
+                    {
+                      "key": "email",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "895965b9-cf56-4a83-8632-938f63c0d564"
+                    },
+                    {
+                      "key": "phone_no",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "c01ae9cd-70d4-4e3b-98eb-efe4735147f0"
+                    },
+                    {
+                      "key": "address",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "82d0ac57-f807-4aea-9c6e-381a0ccfc27d"
+                    },
+                    {
+                      "key": "facebook_url",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "a544fcea-3387-44a9-8381-cd345dbe4828"
+                    },
+                    {
+                      "key": "instagram_url",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "a3155045-57e5-46dc-813c-b5ed854f40f2"
+                    },
+                    {
+                      "key": "tikTok_url",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "bc8c78a7-f5b5-4aac-913a-12aead811575"
+                    },
+                    {
+                      "key": "hero_title",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "63c88488-2cf5-4ae1-a33c-2cf6114fd7ae"
+                    },
+                    {
+                      "key": "hero_subtitle",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "9af7f73f-98a9-4c88-91e5-19d7679e87bc"
+                    },
+                    {
+                      "key": "ceo_name",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "14e3d7c3-c72e-4a0a-ac4e-54eb4f01f45d"
+                    },
+                    {
+                      "key": "ceo_message",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "a4a30a14-5db8-463e-872b-37bab7e687be"
+                    },
+                    {
+                      "key": "ceo_image",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "548568af-51fc-47cf-a39c-237cfc7e4b27"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/site-settings",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "site-settings"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all site setting data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/site-settings",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "site-settings"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Our Team Designation",
+          "item": [
+            {
+              "name": "store our team designation",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Manager",
+                      "type": "text",
+                      "uuid": "035b9ee6-7f76-4565-8f8c-2e0b7d7233f4"
+                    },
+                    {
+                      "key": "order_no",
+                      "value": "2",
+                      "type": "text",
+                      "uuid": "44e89cd0-f064-4f6b-8652-4367268cfe4d"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/our-team-designation",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "our-team-designation"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update our team designation",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "CEO1",
+                      "type": "text",
+                      "uuid": "035b9ee6-7f76-4565-8f8c-2e0b7d7233f4"
+                    },
+                    {
+                      "key": "order_no",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "44e89cd0-f064-4f6b-8652-4367268cfe4d"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PUT",
+                      "type": "text",
+                      "uuid": "39a27744-e202-4eaf-863a-9fbcc0941775"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/our-team-designation/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "our-team-designation",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all our team designation",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/our-team-designation?pagination_limit&search_keyword",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "our-team-designation"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "search_keyword",
+                      "value": null,
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete our team designation",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/our-team-designation/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "our-team-designation",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "single show our designation with team members",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/our-team-designation/2",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "our-team-designation",
+                    "2"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Our Team",
+          "item": [
+            {
+              "name": "store our team",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Puja Limbu",
+                      "type": "text",
+                      "uuid": "3fcae46a-976b-453e-a7d0-f01ada28c1e9"
+                    },
+                    {
+                      "key": "designation_id",
+                      "value": "2",
+                      "type": "text",
+                      "uuid": "de027d63-983f-492d-93ce-e098761da30b"
+                    },
+                    {
+                      "key": "email",
+                      "value": "puja@gmail.com",
+                      "type": "text",
+                      "uuid": "1a0d8364-73e7-4d2e-be3d-ca3cd7dfd1ba"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "5454656",
+                      "type": "text",
+                      "uuid": "d2f764e0-deaf-42b7-95f9-31e5851e734b"
+                    },
+                    {
+                      "key": "order_no",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "e0026589-0607-4f32-afc5-7dbf9cc43fba"
+                    },
+                    {
+                      "key": "photo",
+                      "type": "file",
+                      "uuid": "d22de5d3-c9d0-4a3c-a20c-eb90dd049ce1",
+                      "src": "/Users/hanciephago/Desktop/classmate-long-book-single-line-80-pages-297-mm-x-210-mm-pack-of-3-1000x1000.webp"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/our-teams",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "our-teams"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update our team data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Puja Limbu",
+                      "type": "text",
+                      "uuid": "3fcae46a-976b-453e-a7d0-f01ada28c1e9"
+                    },
+                    {
+                      "key": "designation_id",
+                      "value": "2",
+                      "type": "text",
+                      "uuid": "de027d63-983f-492d-93ce-e098761da30b"
+                    },
+                    {
+                      "key": "email",
+                      "value": "puja@gmail.com",
+                      "type": "text",
+                      "uuid": "1a0d8364-73e7-4d2e-be3d-ca3cd7dfd1ba"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "5454656",
+                      "type": "text",
+                      "uuid": "d2f764e0-deaf-42b7-95f9-31e5851e734b"
+                    },
+                    {
+                      "key": "order_no",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "e0026589-0607-4f32-afc5-7dbf9cc43fba"
+                    },
+                    {
+                      "key": "photo",
+                      "type": "file",
+                      "uuid": "d22de5d3-c9d0-4a3c-a20c-eb90dd049ce1",
+                      "src": "/Users/hanciephago/Desktop/classmate-long-book-single-line-80-pages-297-mm-x-210-mm-pack-of-3-1000x1000.webp"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PUT",
+                      "type": "text",
+                      "uuid": "35e1465d-9cbe-48bb-9ff6-c8052d4fcf88"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/our-teams/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "our-teams",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all our team data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/our-teams",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "our-teams"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete our team",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/ecmascript",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/our-teams/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "our-teams",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Our Event",
+          "item": [
+            {
+              "name": "store our event",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "a98c8192-f5ae-4b30-ae46-11f9213dfc23"
+                    },
+                    {
+                      "key": "description",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "9504a5d6-1300-4cb2-a495-97b08bc592f8"
+                    },
+                    {
+                      "key": "date",
+                      "value": "2026-05-20",
+                      "type": "text",
+                      "uuid": "af9bfe6f-644c-445e-aa64-fdbaea0e2a27"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "10:00",
+                      "type": "text",
+                      "uuid": "222c1257-d3ce-472a-809d-d5efe6701ae8"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "16:00",
+                      "type": "text",
+                      "uuid": "5efd0701-9bff-457a-94a8-6caf7026094c"
+                    },
+                    {
+                      "key": "location",
+                      "value": "Tinkune, Kathmandu, Nepal",
+                      "type": "text",
+                      "uuid": "71305d9f-bfe7-42ed-8d9c-9d6186eed1dc"
+                    },
+                    {
+                      "key": "status",
+                      "value": "open",
+                      "type": "text",
+                      "uuid": "ae58cd90-f92b-41f9-9f01-329ee5f1a14d"
+                    },
+                    {
+                      "key": "event_image",
+                      "type": "file",
+                      "uuid": "afcdfa07-bee0-4a8d-9789-2b85b8412d1f",
+                      "src": "/Users/hanciephago/Desktop/Black-and-Red-Simple-Car-Icon-Industrial-Logo-(6).jpeg"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/events",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "events"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update event data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "a98c8192-f5ae-4b30-ae46-11f9213dfc23"
+                    },
+                    {
+                      "key": "description",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "9504a5d6-1300-4cb2-a495-97b08bc592f8"
+                    },
+                    {
+                      "key": "date",
+                      "value": "2026-05-20",
+                      "type": "text",
+                      "uuid": "af9bfe6f-644c-445e-aa64-fdbaea0e2a27"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "10:00",
+                      "type": "text",
+                      "uuid": "222c1257-d3ce-472a-809d-d5efe6701ae8"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "16:00",
+                      "type": "text",
+                      "uuid": "5efd0701-9bff-457a-94a8-6caf7026094c"
+                    },
+                    {
+                      "key": "location",
+                      "value": "Tinkune, Kathmandu, Nepal",
+                      "type": "text",
+                      "uuid": "71305d9f-bfe7-42ed-8d9c-9d6186eed1dc"
+                    },
+                    {
+                      "key": "status",
+                      "value": "open",
+                      "type": "text",
+                      "uuid": "ae58cd90-f92b-41f9-9f01-329ee5f1a14d"
+                    },
+                    {
+                      "key": "event_image",
+                      "type": "file",
+                      "uuid": "afcdfa07-bee0-4a8d-9789-2b85b8412d1f",
+                      "src": "/Users/hanciephago/Desktop/Black-and-Red-Simple-Car-Icon-Industrial-Logo-(6).jpeg"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PUT",
+                      "type": "text",
+                      "uuid": "ef94dc4c-8f24-4beb-bce1-50cfc5f94558"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/events/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "events",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all events",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/events?pagination_limit=8&search_keyword",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": "8",
+                      "type": "text"
+                    },
+                    {
+                      "key": "search_keyword",
+                      "value": null,
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "single show event details",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/events/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "events",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete event",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/events/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "events",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Contact Us",
+          "item": [
+            {
+              "name": "show all contact us",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/contact-us?is_responded=false&pagination_limit=8",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "contact-us"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_responded",
+                      "value": "false"
+                    },
+                    {
+                      "key": "pagination_limit",
+                      "value": "8"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "single show contact us data",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/contact-us/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "contact-us",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "mark contact us as responded",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "responded_note",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "cc73618b-b17e-4e12-a1cc-b780ea01f3d9"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PATCH",
+                      "type": "text",
+                      "uuid": "21827901-0d6b-4d32-bae1-7add8fed8d18"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/contact-us/{id}/mark-as-responded",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "contact-us",
+                    "{id}",
+                    "mark-as-responded"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Website",
+      "item": [
+        {
+          "name": "Our Team",
+          "item": [
+            {
+              "name": "show all our team basis of designation",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/our-teams",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "our-teams"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Our Event",
+          "item": [
+            {
+              "name": "show all our events",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/api/events?month&year&date",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "key": "month",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "year",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "date",
+                      "value": null,
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "single show event data",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/api/events/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "events",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Contact Us",
+          "item": [
+            {
+              "name": "store contact us data",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "full_name",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "55746180-eda1-4b4d-9774-5725dfa83444"
+                    },
+                    {
+                      "key": "email",
+                      "value": "hy@gmail.com",
+                      "type": "text",
+                      "uuid": "f84aa153-b734-4a81-a3e4-b8b821ece7ae"
+                    },
+                    {
+                      "key": "phone_number",
+                      "value": "4546546",
+                      "type": "text",
+                      "uuid": "fab4b52b-378c-40a8-9b22-2d0fb7ac7c81"
+                    },
+                    {
+                      "key": "preferred_destination",
+                      "value": "Malta",
+                      "type": "text",
+                      "uuid": "c3774bfa-94cc-4c4f-93e0-f984caeaed1a"
+                    },
+                    {
+                      "key": "message",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "b721842f-6aa5-40d1-a4ad-80a825e09787"
+                    },
+                    {
+                      "key": "agreed_to_privacy_policy",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "f51ccf53-d8c7-493f-88d7-5544b17769cc"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/contact-us",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "contact-us"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Blogs",
+          "item": [
+            {
+              "name": "show all blogs",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/blogs?pagination_limit&search_keyword&is_featured&limit",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "blogs"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "search_keyword",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "is_featured",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "limit",
+                      "value": null,
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show single blog data",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/blogs/{slug}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "blogs",
+                    "{slug}"
                   ]
                 }
               },
