@@ -23,6 +23,9 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+    noauthAuth:
+      type: http
+      scheme: noauth
 tags:
   - name: Admin
   - name: Admin > Auth
@@ -34,11 +37,14 @@ tags:
   - name: Admin > Our Team
   - name: Admin > Our Event
   - name: Admin > Contact Us
+  - name: Admin > Visitor Logs
   - name: Website
   - name: Website > Our Team
   - name: Website > Our Event
   - name: Website > Contact Us
   - name: Website > Blogs
+  - name: Website > Faq
+  - name: Website > Site Settings
 paths:
   /api/admin/login:
     post:
@@ -1012,6 +1018,189 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/admin/visitor-logs:
+    post:
+      tags:
+        - Admin > Visitor Logs
+      summary: store visitor logs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                full_name: John Doe
+                phone: '0712345678'
+                email: john.doe@example.com
+                purpose: Business consultation
+                notes: Client interested in financial advisory services
+                staff_id: 1
+                visit_date: '2026-05-02'
+                check_in: '09:00:00'
+                check_out: '10:30:00'
+                status: waiting
+                source: walk-in
+                follow_up_date: '2026-05-09'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Visitor Logs
+      summary: show all visitor logs data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
+        - name: status
+          in: query
+          schema:
+            type: string
+        - name: visit_date
+          in: query
+          schema:
+            type: string
+        - name: staff_id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/visitor-logs/{id}:
+    post:
+      tags:
+        - Admin > Visitor Logs
+      summary: update visitor log
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                full_name: John Doe
+                phone: '0712345678'
+                email: john.doe@example.com
+                purpose: Business consultation
+                notes: Client interested in financial advisory services
+                staff_id: 1
+                visit_date: '2026-05-02'
+                check_in: '09:00:00'
+                check_out: '10:30:00'
+                status: waiting
+                source: walk-in
+                follow_up_date: '2026-05-09'
+                _method: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Visitor Logs
+      summary: show single visitor log
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Visitor Logs
+      summary: delete visitor log
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/visitor-logs/{visitorLog}/update-status:
+    post:
+      tags:
+        - Admin > Visitor Logs
+      summary: update visitor log status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: |-
+                { "status": "in_progress" }
+
+                Accepts: waiting, in_progress, completed, cancelled.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: visitorLog
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/our-teams:
     get:
       tags:
@@ -1113,7 +1302,7 @@ paths:
         - Website > Blogs
       summary: show all blogs
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       parameters:
         - name: Accept
           in: header
@@ -1157,6 +1346,26 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/faqs:
+    get:
+      tags:
+        - Website > Faq
+      summary: show all faq
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/site-settings:
+    get:
+      tags:
+        - Website > Site Settings
+      summary: show all site settings data
       responses:
         '200':
           description: Successful response
