@@ -2388,6 +2388,312 @@
               "response": []
             }
           ]
+        },
+        {
+          "name": "Testimonials",
+          "item": [
+            {
+              "name": "store testimonial data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "65e0a51c-03fd-412c-92e7-4e6d1f86dc46"
+                    },
+                    {
+                      "key": "institution",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "3548383c-923a-4524-83b3-6970c537c0f6"
+                    },
+                    {
+                      "key": "review",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "9fcd71c6-dd02-43bd-be1b-24546920bd5a"
+                    },
+                    {
+                      "key": "rating",
+                      "value": "5",
+                      "type": "text",
+                      "uuid": "b20b2d12-4c74-4914-8fb1-2723b26dfb76"
+                    },
+                    {
+                      "key": "is_featured",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "a029d3f9-61fb-4e9d-9f00-f32e09797556"
+                    },
+                    {
+                      "key": "status",
+                      "value": "active",
+                      "type": "text",
+                      "uuid": "aed846e7-1a2c-4d91-88e0-7f42c1c4104b"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/testimonials",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "testimonials"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update testimonial data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "65e0a51c-03fd-412c-92e7-4e6d1f86dc46"
+                    },
+                    {
+                      "key": "institution",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "3548383c-923a-4524-83b3-6970c537c0f6"
+                    },
+                    {
+                      "key": "review",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "9fcd71c6-dd02-43bd-be1b-24546920bd5a"
+                    },
+                    {
+                      "key": "rating",
+                      "value": "5",
+                      "type": "text",
+                      "uuid": "b20b2d12-4c74-4914-8fb1-2723b26dfb76"
+                    },
+                    {
+                      "key": "is_featured",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "a029d3f9-61fb-4e9d-9f00-f32e09797556"
+                    },
+                    {
+                      "key": "status",
+                      "value": "active",
+                      "type": "text",
+                      "uuid": "aed846e7-1a2c-4d91-88e0-7f42c1c4104b"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PUT",
+                      "type": "text",
+                      "uuid": "02b7e9a7-bb8a-46be-aace-8c2d2f799739"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/testimonials/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "testimonials",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all testimonials data",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/testimonials?pagination_limit=8&search_keyword&status",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "testimonials"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": "8",
+                      "type": "text"
+                    },
+                    {
+                      "key": "search_keyword",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "status",
+                      "value": null,
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete testimonial data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/testimonials/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "testimonials",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show testimonial single data",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/testimonials/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "testimonials",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
         }
       ]
     },
@@ -2758,6 +3064,67 @@
                     "api",
                     "university-guides",
                     "{slug}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Testimonials",
+          "item": [
+            {
+              "name": "show all testimonials",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/testimonials?pagination_limit&is_featured&limit&rating",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "testimonials"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "is_featured",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "limit",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "rating",
+                      "value": null,
+                      "type": "text"
+                    }
                   ]
                 }
               },

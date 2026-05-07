@@ -39,6 +39,7 @@ tags:
   - name: Admin > Contact Us
   - name: Admin > Visitor Logs
   - name: Admin > University Guides
+  - name: Admin > Testimonials
   - name: Website
   - name: Website > Our Team
   - name: Website > Our Event
@@ -47,6 +48,7 @@ tags:
   - name: Website > Faq
   - name: Website > Site Settings
   - name: Website > University Guide
+  - name: Website > Testimonials
 paths:
   /api/admin/login:
     post:
@@ -1382,6 +1384,172 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/admin/testimonials:
+    post:
+      tags:
+        - Admin > Testimonials
+      summary: store testimonial data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: hy
+                institution:
+                  type: string
+                  example: hy
+                review:
+                  type: string
+                  example: hy
+                rating:
+                  type: integer
+                  example: '5'
+                is_featured:
+                  type: integer
+                  example: '1'
+                status:
+                  type: string
+                  example: active
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Testimonials
+      summary: show all testimonials data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+        - name: status
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/testimonials/{id}:
+    post:
+      tags:
+        - Admin > Testimonials
+      summary: update testimonial data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: hy
+                institution:
+                  type: string
+                  example: hy
+                review:
+                  type: string
+                  example: hy
+                rating:
+                  type: integer
+                  example: '5'
+                is_featured:
+                  type: integer
+                  example: '1'
+                status:
+                  type: string
+                  example: active
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Testimonials
+      summary: delete testimonial data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Testimonials
+      summary: show testimonial single data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/our-teams:
     get:
       tags:
@@ -1601,6 +1769,40 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/testimonials:
+    get:
+      tags:
+        - Website > Testimonials
+      summary: show all testimonials
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: string
+        - name: is_featured
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: rating
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
