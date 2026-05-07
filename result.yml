@@ -38,6 +38,7 @@ tags:
   - name: Admin > Our Event
   - name: Admin > Contact Us
   - name: Admin > Visitor Logs
+  - name: Admin > University Guides
   - name: Website
   - name: Website > Our Team
   - name: Website > Our Event
@@ -45,6 +46,7 @@ tags:
   - name: Website > Blogs
   - name: Website > Faq
   - name: Website > Site Settings
+  - name: Website > University Guide
 paths:
   /api/admin/login:
     post:
@@ -1201,6 +1203,185 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/admin/university-guides:
+    post:
+      tags:
+        - Admin > University Guides
+      summary: store university guides
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: hy
+                excerpt:
+                  type: string
+                  example: hy
+                content:
+                  type: string
+                  example: hy
+                country:
+                  type: string
+                  example: United Kingdom
+                country_code:
+                  type: string
+                  example: UK
+                status:
+                  type: string
+                  example: published
+                published_at:
+                  type: string
+                  example: '2026-05-07 00:00:00'
+                is_featured:
+                  type: integer
+                  example: '1'
+                university_guide_image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > University Guides
+      summary: show all university guides
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: string
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/university-guides/{id}:
+    post:
+      tags:
+        - Admin > University Guides
+      summary: update university guides
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: hy
+                excerpt:
+                  type: string
+                  example: hy
+                content:
+                  type: string
+                  example: hy
+                country:
+                  type: string
+                  example: United Kingdom
+                country_code:
+                  type: string
+                  example: UK
+                status:
+                  type: string
+                  example: published
+                published_at:
+                  type: string
+                  example: '2026-05-07 00:00:00'
+                is_featured:
+                  type: integer
+                  example: '1'
+                university_guide_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > University Guides
+      summary: show single data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > University Guides
+      summary: delete university guide data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/our-teams:
     get:
       tags:
@@ -1366,6 +1547,60 @@ paths:
       tags:
         - Website > Site Settings
       summary: show all site settings data
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/university-guides:
+    get:
+      tags:
+        - Website > University Guide
+      summary: show all university guide data
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: string
+        - name: search_keyword
+          in: query
+          schema:
+            type: string
+        - name: country
+          in: query
+          schema:
+            type: string
+        - name: is_featured
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/university-guides/{slug}:
+    get:
+      tags:
+        - Website > University Guide
+      summary: show single university guide data
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response

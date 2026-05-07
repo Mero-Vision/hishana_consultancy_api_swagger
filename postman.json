@@ -2069,6 +2069,325 @@
               "response": []
             }
           ]
+        },
+        {
+          "name": "University Guides",
+          "item": [
+            {
+              "name": "store university guides",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "a62fa994-b08f-485c-bd1d-7cac1929a5bf"
+                    },
+                    {
+                      "key": "excerpt",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "e8e017db-e4e7-4238-b354-a04f8c14ccfc"
+                    },
+                    {
+                      "key": "content",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "bfeb7b73-fe09-40d0-820a-e4b8f565c365"
+                    },
+                    {
+                      "key": "country",
+                      "value": "United Kingdom",
+                      "type": "text",
+                      "uuid": "ba0073b1-f5e9-48f1-8ef9-13dc22153325"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "UK",
+                      "type": "text",
+                      "uuid": "c5e4a7e7-a271-4401-9980-78fb5a0813b2"
+                    },
+                    {
+                      "key": "status",
+                      "value": "published",
+                      "type": "text",
+                      "uuid": "71936c52-f46a-469f-875b-150fc798470b"
+                    },
+                    {
+                      "key": "published_at",
+                      "value": "2026-05-07 00:00:00",
+                      "type": "text",
+                      "uuid": "60e2d9c9-eef3-42e2-b1d5-e57c9f91eccb"
+                    },
+                    {
+                      "key": "is_featured",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "950cbc1d-af6d-47e9-98b8-155317ec83e3"
+                    },
+                    {
+                      "key": "university_guide_image",
+                      "type": "file",
+                      "uuid": "a255534c-99e7-4772-9cf6-c9bb596693ac",
+                      "src": "/Users/hanciephago/Desktop/Black-and-Red-Simple-Car-Icon-Industrial-Logo-(6).jpeg"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/university-guides",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "university-guides"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update university guides",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "a62fa994-b08f-485c-bd1d-7cac1929a5bf"
+                    },
+                    {
+                      "key": "excerpt",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "e8e017db-e4e7-4238-b354-a04f8c14ccfc"
+                    },
+                    {
+                      "key": "content",
+                      "value": "hy",
+                      "type": "text",
+                      "uuid": "bfeb7b73-fe09-40d0-820a-e4b8f565c365"
+                    },
+                    {
+                      "key": "country",
+                      "value": "United Kingdom",
+                      "type": "text",
+                      "uuid": "ba0073b1-f5e9-48f1-8ef9-13dc22153325"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "UK",
+                      "type": "text",
+                      "uuid": "c5e4a7e7-a271-4401-9980-78fb5a0813b2"
+                    },
+                    {
+                      "key": "status",
+                      "value": "published",
+                      "type": "text",
+                      "uuid": "71936c52-f46a-469f-875b-150fc798470b"
+                    },
+                    {
+                      "key": "published_at",
+                      "value": "2026-05-07 00:00:00",
+                      "type": "text",
+                      "uuid": "60e2d9c9-eef3-42e2-b1d5-e57c9f91eccb"
+                    },
+                    {
+                      "key": "is_featured",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "950cbc1d-af6d-47e9-98b8-155317ec83e3"
+                    },
+                    {
+                      "key": "university_guide_image",
+                      "type": "file",
+                      "uuid": "a255534c-99e7-4772-9cf6-c9bb596693ac",
+                      "src": "/Users/hanciephago/Desktop/Black-and-Red-Simple-Car-Icon-Industrial-Logo-(6).jpeg"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PUT",
+                      "type": "text",
+                      "uuid": "10b76cc6-a5c2-4ad8-bc14-a1ae9f2d862e"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/university-guides/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "university-guides",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all university guides",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/university-guides?pagination_limit&search_keyword",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "university-guides"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "search_keyword",
+                      "value": null,
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show single data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/university-guides/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "university-guides",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete university guide data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/api/admin/university-guides/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "university-guides",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
         }
       ]
     },
@@ -2354,6 +2673,91 @@
                   "path": [
                     "api",
                     "site-settings"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "University Guide",
+          "item": [
+            {
+              "name": "show all university guide data",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/university-guides?pagination_limit&search_keyword&country&is_featured&limit",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "university-guides"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination_limit",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "search_keyword",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "country",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "is_featured",
+                      "value": null,
+                      "type": "text"
+                    },
+                    {
+                      "key": "limit",
+                      "value": null,
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show single university guide data",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/api/university-guides/{slug}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "university-guides",
+                    "{slug}"
                   ]
                 }
               },
