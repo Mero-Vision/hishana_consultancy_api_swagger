@@ -40,6 +40,7 @@ tags:
   - name: Admin > Visitor Logs
   - name: Admin > University Guides
   - name: Admin > Testimonials
+  - name: Admin > User
   - name: Website
   - name: Website > Our Team
   - name: Website > Our Event
@@ -1532,6 +1533,139 @@ paths:
       tags:
         - Admin > Testimonials
       summary: show testimonial single data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/users:
+    post:
+      tags:
+        - Admin > User
+      summary: store user data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Hy
+                email:
+                  type: string
+                  example: hy@gmail.com
+                password:
+                  type: string
+                  example: Password
+                password_confirmation:
+                  type: string
+                  example: Password
+                role:
+                  type: string
+                  example: admin
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > User
+      summary: show all users
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/roles:
+    get:
+      tags:
+        - Admin > User
+      summary: show all roles
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/users/{user}/change-password:
+    post:
+      tags:
+        - Admin > User
+      summary: change user password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+                _method:
+                  type: string
+                  example: PATCH
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/users/{id}:
+    delete:
+      tags:
+        - Admin > User
+      summary: delete user
       security:
         - bearerAuth: []
       parameters:

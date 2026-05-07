@@ -2694,6 +2694,265 @@
               "response": []
             }
           ]
+        },
+        {
+          "name": "User",
+          "item": [
+            {
+              "name": "store user data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Hy",
+                      "type": "text",
+                      "uuid": "86e27c8b-ec37-4676-85a3-5e56ae471b03"
+                    },
+                    {
+                      "key": "email",
+                      "value": "hy@gmail.com",
+                      "type": "text",
+                      "uuid": "f5ed9f81-e9e8-4cba-92a6-5159d37e03de"
+                    },
+                    {
+                      "key": "password",
+                      "value": "Password",
+                      "type": "text",
+                      "uuid": "70d852b6-3766-47b6-be61-86490bc3189c"
+                    },
+                    {
+                      "key": "password_confirmation",
+                      "value": "Password",
+                      "type": "text",
+                      "uuid": "9d896dcb-c3b5-43f5-82ea-88c9fd8bef6a"
+                    },
+                    {
+                      "key": "role",
+                      "value": "admin",
+                      "type": "text",
+                      "uuid": "a5b165f2-cb15-499b-b671-c3a3b0ac29ec"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/users",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "users"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all users",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/users",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "users"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "show all roles",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/roles",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "roles"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "change user password",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "password",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "0e1a273d-b562-43bd-9850-435c63c2f2c3"
+                    },
+                    {
+                      "key": "password_confirmation",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "e325ece2-9e2b-4f34-89ed-287a421f02bc"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PATCH",
+                      "type": "text",
+                      "uuid": "984e89f4-2af2-4153-b21a-9f65182bd74a"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/users/{user}/change-password",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    "{user}",
+                    "change-password"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete user",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{url}}/api/admin/users/{id}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    "{id}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
         }
       ]
     },
